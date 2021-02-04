@@ -1,8 +1,5 @@
 library chess_board;
 
-export 'src/chess_board.dart';
-export 'src/chess_board_controller.dart';
-
 import 'dart:async';
 
 import 'package:chess_vectors_flutter/chess_vectors_flutter.dart';
