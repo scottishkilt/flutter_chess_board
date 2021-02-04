@@ -9,6 +9,7 @@ dependencies:
   chess: 
     git:
       url: https://github.com/scottishkilt/chess.dart.git
+      ref: master
   chess_vectors_flutter: ">=1.0.6 <2.0.0"
   scoped_model: ">=1.0.0 <2.0.0"
 
