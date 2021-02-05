@@ -58,7 +58,7 @@ class _ChessBoardState extends State<ChessBoard> {
   @override
   void initState() {
     if(widget.fromFen != null){
-      game = chess.fromFEN(widget.fromFen);
+      game = chess.Chess.fromFEN(widget.fromFen);
     }
     super.initState();
     if (widget.chessBoardController != null) {
