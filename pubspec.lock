@@ -33,7 +33,7 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
+      ref: master
       resolved-ref: "050e2be1f641b249be864a88524a989fc36e9c43"
       url: "https://github.com/scottishkilt/chess.dart.git"
     source: git
