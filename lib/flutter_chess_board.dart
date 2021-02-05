@@ -33,6 +33,7 @@ class ChessBoard extends StatefulWidget {
   final bool enableUserMoves;
 
   final List initMoves;
+  final String fromFen;
 
   ChessBoard(
       {this.size = 200.0,
@@ -42,7 +43,8 @@ class ChessBoard extends StatefulWidget {
         @required this.onDraw,
         this.chessBoardController,
         this.enableUserMoves = true,
-        this.initMoves});
+        this.initMoves,
+        this.fromFen});
 
   @override
   _ChessBoardState createState() => _ChessBoardState();
@@ -51,8 +53,13 @@ class ChessBoard extends StatefulWidget {
 class _ChessBoardState extends State<ChessBoard> {
   chess.Chess game = chess.Chess();
 
+
+
   @override
   void initState() {
+    if(widget.fromFen != null){
+      game = chess.fromFEN(widget.fromFen);
+    }
     super.initState();
     if (widget.chessBoardController != null) {
       widget.chessBoardController.game = game;
@@ -67,6 +74,7 @@ class _ChessBoardState extends State<ChessBoard> {
         });
       }
     }
+
 
   }
 
