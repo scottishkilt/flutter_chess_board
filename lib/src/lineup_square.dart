@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chess_board/src/board_model.dart';
+import 'package:flutter_chess_board/src/lineup_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'dart:async';
 import 'package:chess_vectors_flutter/chess_vectors_flutter.dart';

@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter_chess_board/flutter_chess_board.dart';
-import 'package:flutter_chess_board/src/chess_board_controller.dart';
+import 'package:flutter_chess_board/src/lineup_board_controller.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:chess/chess.dart' as chess;
 

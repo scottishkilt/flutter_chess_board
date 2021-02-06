@@ -8,7 +8,7 @@ enum PieceColor {
 }
 
 /// Controller for programmatically controlling the board
-class ChessBoardController {
+class LineupBoardController {
   /// The game attached to the controller
   chess.Chess game;
 
