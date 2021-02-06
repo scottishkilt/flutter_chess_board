@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chess_board/src/board_model.dart';
-import 'package:flutter_chess_board/src/board_rank.dart';
+import 'package:flutter_chess_board/src/lineup_model.dart';
+import 'package:flutter_chess_board/src/lineup_rank.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'chess_board_controller.dart';
+import 'lineup_board_controller.dart';
 
 var whiteSquareList = [
   [
@@ -96,7 +96,7 @@ enum BoardType {
 }
 
 /// The Chessboard Widget
-class ChessBoard extends StatefulWidget {
+class LineupBoard extends StatefulWidget {
   /// Size of chessboard
   final double size;
 
@@ -116,7 +116,7 @@ class ChessBoard extends StatefulWidget {
   final bool whiteSideTowardsUser;
 
   /// A controller to programmatically control the chess board
-  final ChessBoardController chessBoardController;
+  final LineupBoardController lineupBoardController;
 
   /// A boolean which checks if the user should be allowed to make moves
   final bool enableUserMoves;
@@ -124,34 +124,34 @@ class ChessBoard extends StatefulWidget {
   /// The color type of the board
   final BoardType boardType;
 
-  ChessBoard({
+  LineupBoard({
     this.size = 200.0,
     this.whiteSideTowardsUser = true,
     @required this.onMove,
     @required this.onCheckMate,
     @required this.onCheck,
     @required this.onDraw,
-    this.chessBoardController,
+    this.lineupBoardController,
     this.enableUserMoves = true,
     this.boardType = BoardType.brown,
   });
 
   @override
-  _ChessBoardState createState() => _ChessBoardState();
+  _LineupBoardState createState() => _LineupBoardState();
 }
 
-class _ChessBoardState extends State<ChessBoard> {
+class _LineupBoardState extends State<LineupBoard> {
   @override
   Widget build(BuildContext context) {
     return ScopedModel(
-      model: BoardModel(
+      model: LineupModel(
         widget.size,
         widget.onMove,
         widget.onCheckMate,
         widget.onCheck,
         widget.onDraw,
         widget.whiteSideTowardsUser,
-        widget.chessBoardController,
+        widget.lineupBoardController,
         widget.enableUserMoves,
       ),
       child: Container(
@@ -169,7 +169,7 @@ class _ChessBoardState extends State<ChessBoard> {
               child: Container(
                 height: widget.size,
                 width: widget.size,
-                child: buildChessBoard(),
+                child: buildLineupBoard(),
               ),
             )
           ],
@@ -179,16 +179,16 @@ class _ChessBoardState extends State<ChessBoard> {
   }
 
   /// Builds the board
-  Widget buildChessBoard() {
+  Widget buildLineupBoard() {
     return Column(
       children: widget.whiteSideTowardsUser
           ? whiteSquareList.map((row) {
-              return ChessBoardRank(
+              return LineupBoardRank(
                 children: row,
               );
             }).toList()
           : whiteSquareList.reversed.map((row) {
-              return ChessBoardRank(
+              return LineupBoardRank(
                 children: row.reversed.toList(),
               );
             }).toList(),
